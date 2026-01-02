@@ -10,4 +10,7 @@ to add column in table
 4)run php artisan migrate
 to return the last migration run : php artisan migrate:rollback
 
-$student2= Student::create(['name'=>'uhan','email'=>'uhan@gmail.com','status'=>'disable','phone'=>'0612345']);
+//to add login page 
+composer require laravel/breeze --dev 
+php artisan breeze:install
+
