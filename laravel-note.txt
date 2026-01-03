@@ -2,8 +2,8 @@ note laravel cours linkedin:
 how to use tableplus ? 
 how to use elquant?
 
-//
-to add column in table
+//to add column in table
+
 1)php artisan make:migration add_nameofcolumn_to_tablename --table=tablename
 2)add in this migration the type of this column 
 3)add this column in model $fillable
@@ -13,4 +13,8 @@ to return the last migration run : php artisan migrate:rollback
 //to add login page 
 composer require laravel/breeze --dev 
 php artisan breeze:install
+
+//to add Route with resource:
+Route::resource('notes', NoteController::class);
+note:Route note route also "NoteController::class" not "[NoteController::class]"
 
