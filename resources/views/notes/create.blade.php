@@ -7,9 +7,12 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">
-                <form action="" methode="post" class="max-w-3xl">
-                    
+            <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg mx-2xl">
+                <form action="{{route('notes.store')}}" methode="post" >
+                    @csrf
+                    <x-text-input name="title" class="w-full" placeholder="Note Title" ></x-text-input>
+                    <x-textarea namr="text" placeholder="Type your note" rows="8" value="" class="w-full mt-6"></x-textarea>
+                    <x-primary-button class="mt-6">Save note</x-primary-button>
                 </form>
             </div>
         
