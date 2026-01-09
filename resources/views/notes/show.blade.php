@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="flex gap-6"> 
-                <p class="opacity-70"><strong>Create d: </strong>{{$note->created_at->diffForHUmans()}}</p>
+                <p class="opacity-70"><strong>Created: </strong>{{$note->created_at->diffForHUmans()}}</p>
                 <p class="opacity-70"><strong>Updated: </strong>{{$note->updated_at->diffForHUmans()}}</p>
             </div>
             <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">
