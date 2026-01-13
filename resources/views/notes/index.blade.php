@@ -25,13 +25,14 @@
             }
         </script>
     @endif
+    
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <x-link-button class="flex justify-end bg-gray-500 p-5" href="{{route('notebooks.index')}}">Notebooks</x-link-button>
             <x-link-button  href="{{route('notes.create')}}">+add note</x-link-button>
             @forelse ($notes as $note)
             <div class="bg-white p-6 overflow-hidden shadow-sm sm:rounded-lg">
-                <h1 class="font-bold test-exl text-indigo-600">
+                <h1 class=" font-bold test-exl text-indigo-600">
                     <a class="hover:underline" href={{route('notes.show' , $note)}}>{{$note->title}}</a>
                 </h1>
                 <p class="mt-2">{{Str::limit($note->text,100,'...')}}</p>

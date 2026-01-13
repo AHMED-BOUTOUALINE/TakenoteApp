@@ -19,6 +19,14 @@
                     @error('text')
                         <div class="text-sm mt-1 text-red-500">{{$message}}</div>
                     @enderror
+                    <select name="notebook_id" >
+                        <option value="">--- Select notebook ---</option>
+                        @foreach ($notebooks as $notebook)
+                            <option value="{{$notebook->name}}">
+                                {{$notebook->name}}
+                            </option>
+                        @endforeach
+                    </select>
                     <x-primary-button class="mt-6">Save note</x-primary-button>
                 </form>
             </div>

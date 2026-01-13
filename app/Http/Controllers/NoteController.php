@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
+use App\Models\Notebook;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -47,7 +48,7 @@ class NoteController extends Controller
         ]);
         $note->save();
         return redirect()->route('notes.index')
-                        ->with('success', 'Data added successfully!');
+            ->with('success', 'Data added successfully!');
     }
 
     /**
@@ -58,6 +59,7 @@ class NoteController extends Controller
         if ($note->user_id !== Auth::id()) {
             abort(403);
         }
+
         return view('notes.show', ['note' => $note]);
     }
 
@@ -66,7 +68,10 @@ class NoteController extends Controller
      */
     public function edit(Note $note)
     {
-        //
+        if ($note->user_id !== Auth::id()) {
+            abort(403);
+        }
+        return view('notes.edit', ['note' => $note]);
     }
 
     /**
@@ -74,7 +79,22 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-        //
+        if ($note->user_id !== Auth::id()) {
+            abort(403);
+        }
+        $request->validate(
+            [
+                'title' => 'required | max:120',
+                'text' =>  'required'
+            ]
+        );
+
+        $note->update([
+            'title' => $request->title,
+            'text' => $request->text
+        ]);
+        return redirect()->route('notes.index')
+            ->with('success', 'Data updated successfully!');
     }
 
     /**
@@ -82,6 +102,11 @@ class NoteController extends Controller
      */
     public function destroy(Note $note)
     {
-        //
+        if ($note->user_id !== Auth::id()) {
+            abort(403);
+        }
+        $note->delete();
+        return redirect()->route('notes.index')
+            ->with('success', 'you have delete this note successfully!');
     }
 }
