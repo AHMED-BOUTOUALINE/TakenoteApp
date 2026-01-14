@@ -7,6 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+            <button class="bg-green-500">{{ $note->notebook->name }}</button>
             <div class="flex gap-6"> 
                 <p class="opacity-70"><strong>Created: </strong>{{$note->created_at->diffForHUmans()}}</p>
                 <p class="opacity-70"><strong>Updated: </strong>{{$note->updated_at->diffForHUmans()}}</p>

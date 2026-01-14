@@ -22,7 +22,7 @@
                     <select name="notebook_id" >
                         <option value="">--- Select notebook ---</option>
                         @foreach ($notebooks as $notebook)
-                            <option value="{{$notebook->name}}">
+                            <option value="{{$notebook->id}}">
                                 {{$notebook->name}}
                             </option>
                         @endforeach

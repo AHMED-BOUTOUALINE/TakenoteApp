@@ -11,4 +11,12 @@ class Note extends Model
     {
         return 'uuid';
     }
+
+    public function user(){
+        return $this->belongsto(User::class);
+    }
+
+    public function notebook() {
+        return $this->belongsTo(Notebook::class);
+    }
 }
